@@ -14,8 +14,8 @@
     </head>
     <body>
         
-        <header>
-            <div class="container-fluid">
+        <header class="hdr">
+            <div class="container-fluid ctn-header">
                 <div class="row">
                     <div class="col-sm-3">
                         <img src="images/WHlogo.jpg" class="rounded float-left">
@@ -29,22 +29,21 @@
             </div>
         </header>
 
-        <main>
-            <div class="container-fluid">
+        <main class="main-background">
+            <div class="container-fluid main-container">
                 <div class="row justify-content-center">
                     <!-- Current Weather content section -->
-                    <div id="cur-weather" class="col-5">
-                        Current
-                        <button id="test">GET current weather</button>
-                        <!--<img src="images/currentWeather.jpg" style="vertical-align:middle">-->
+                    <div id="cur-weather" class="col-5 data-columns ctn-shadow">
+                        <input id="search-fld" type="text" value="Enter Location">
+                        <button id="search-btn">GET current weather</button>
                     </div>
                     <!-- Hourly Weather content section -->
-                    <div id="map-weather" class="col-5">
+                    <div id="map-weather" class="col-5 data-columns ctn-shadow">
                         Weather Map
                         <img src="images/hourlyWeather.jpg" class="center">
                     </div>
                 </div>
-                <div class="container">
+                <div class="container-fluid ctn-5day">
                     <!-- 10-day Weather content -->
                     <div id="5-weather" class="row">
                         5 day forecast

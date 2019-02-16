@@ -3,14 +3,18 @@
 $(document).ready(function() {
     
     // Search button
-var wData;
+    var wetObject;
 
-    $.getJSON('https://api.openweathermap.org/data/2.5/weather?q=Fargo&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial', function(data) {
-        wData = data;
-        //wData = data;
-    });
-    document.getElementById('test').addEventListener('click', function(){
-        document.getElementById('cur-weather').textContent ='Location: ' + wData.name + '\nTemperature: ' + wData.main.temp + ' Degrees F' + '\nWind Speed: ' + wData.wind.speed;
-    });
+    document.getElementById('search-btn').addEventListener('click', function(){
 
+        let city = document.getElementById('search-fld').value;
+        $.getJSON('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial', function(data) {
+            if(Object.keys(data).length === 2){
+                document.getElementById('cur-weather').textContent = 'City not found. Try again';
+            } else {
+                document.getElementById('cur-weather').textContent ='Location: ' + data.name + '\nTemperature: ' + data.main.temp + ' Degrees F' + '\nWind Speed: ' + data.wind.speed;
+                wetObject = data;
+            }
+        });
+    });
 });

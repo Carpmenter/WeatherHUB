@@ -1,0 +1,30 @@
+.hdr{
+    background-color: lightgray;
+    border-bottom-color: black;
+}
+
+.ctn-header{
+    padding-top: 5px;
+}
+
+.main-background{
+    padding-top: 1px;
+    background-color: lightgray;
+}
+
+.main-container{
+    background-image: linear-gradient(to right,lightgray, darkorange , silver, darkorange , lightgray);
+    width: 95%;
+}
+
+.data-columns{
+    background-color: white;
+}
+
+.ctn-shadow{
+    box-shadow: 10px 10px 5px grey;
+}
+
+.ctn-5day{
+    padding-top: 15px;
+}
