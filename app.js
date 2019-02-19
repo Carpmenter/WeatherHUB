@@ -1,9 +1,10 @@
 /*** Main JavaScript logic for Weather Hub */
-// API Key: f20d0afcce1a8e9378946a0b3d0f107e
+// API Key: appid=f20d0afcce1a8e9378946a0b3d0f107e
+// Vane api: appid=f20d0afcce1a8e9378946a0b3d0f107e
 $(document).ready(function() {
     
     // Search button
-    var wetObject;
+    var wetObject, myMap;
 
     document.getElementById('search-btn').addEventListener('click', function(){
 
@@ -30,8 +31,30 @@ $(document).ready(function() {
                 }
             }
             
-        }); 
+        });
         /*****************************************************************/
-    
+        /* weather layer
+        $.get("https://tile.openweathermap.org/map/temp_new/3/4/5.png?appid=f20d0afcce1a8e9378946a0b3d0f107e", data,
+            function (data, textStatus, jqXHR) {
+                $('#map-weather').innerHTML = data;
+            }
+        );//sat.owm.io/sql/9/143/218?select=b4,b3,b2&order=best&appid=f20d0afcce1a8e9378946a0b3d0f107e
+        $.get("https://sat.owm.io/sql/3/96/48?appid=f20d0afcce1a8e9378946a0b3d0f107e", data,
+            function (data, textStatus, jqXHR) {
+                $('#map-weather').innerHTML = data;
+            }
+        );*/
+
     });
+
+    //https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid={api_key}
+
+    var myMap = L.map('map').setView([46.87, 96.78], 2);
+    L.tileLayer('https://tile.openweathermap.org/map/{id}/{z}/{x}/{y}.png?appid={accessToken}', {
+        maxZoom: 18,
+        id: 'wind_new',
+        accessToken: 'f20d0afcce1a8e9378946a0b3d0f107e'
+    }).addTo(myMap);
+    var marker = L.marker([46.87, 96.78]).addTo(mymap);
+    console.log(myMap);
 });
