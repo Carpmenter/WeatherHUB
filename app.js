@@ -1,6 +1,7 @@
 /*** Main JavaScript logic for Weather Hub */
 // API Key: appid=f20d0afcce1a8e9378946a0b3d0f107e
 // Vane api: appid=f20d0afcce1a8e9378946a0b3d0f107e
+// Map Box: pk.eyJ1IjoibmNhcnBlbnQiLCJhIjoiY2pzZG0zbzkwMGhtdzQzdGw1NXl3ZTZqaCJ9.tERAKAxtU9bUPifk1FprZQ
 $(document).ready(function() {
     
     // Search button
@@ -21,6 +22,13 @@ $(document).ready(function() {
                 document.getElementById('search-result').textContent = 'City not found. Try again';
             },
             success: function(data, textStatus, jqXHR){
+
+                $.getJSON('https://api.openweathermap.org/data/2.5/forecast?q=' + data.name +'&appid=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial', function(content){
+                    for (item in content){
+                        $('5-weather').append('<div>' + item + '</div>');
+                    }
+                    $('5-weather').append('<div>' + content.name + '</div>');
+                });
 
                 console.log(Object.keys(data).length);
                 document.getElementById('search-result').innerHTML = '<table class="table table-striped table-dark"><tbody><tr><td>Location: ' 
@@ -51,15 +59,30 @@ $(document).ready(function() {
 
     //https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid={api_key}
 
-    var myMap = L.map('map').setView([46.87, 96.78], 2);
+    var myMap = L.map('map').setView([46.87, -96.78], 6);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibmNhcnBlbnQiLCJhIjoiY2pzZG0zbzkwMGhtdzQzdGw1NXl3ZTZqaCJ9.tERAKAxtU9bUPifk1FprZQ', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+		id: 'mapbox.streets'
+    }).addTo(myMap);
+    
     L.tileLayer('https://tile.openweathermap.org/map/{id}/{z}/{x}/{y}.png?appid={accessToken}', {
         maxZoom: 18,
-        id: 'precipitation_new',
+        id: 'temp_new',
         accessToken: 'f20d0afcce1a8e9378946a0b3d0f107e'
     }).addTo(myMap);
-    var marker = L.marker([46.87, 96.78]).addTo(myMap);
+
+    var marker = L.marker([46.87, -96.78]).addTo(myMap);
     console.log(myMap);
 
+
+    /********* EVENTS ************/
+    
+    $( "#search-fld" ).click(function(){
+        $(this).val('');
+    });
+
+    /****************************/
 
     function init(){
         //document.getElementById('city-1').innerHTML = 'Miami';
