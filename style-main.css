@@ -31,3 +31,40 @@
     height: 400px; 
     width: 95%;
 }
+
+.forecast-date{
+    position: relative;
+    background-color: olive;
+}
+
+.forecast-high{
+    position: relative;
+    top: 80px;
+    left: 0;
+    width: 125px;
+    height: 100px;
+    background-color: red;
+}
+
+.forecast-low{
+    position: relative;
+    bottom: 80px;
+    left: 0;
+    width: 125px;
+    height: 100px;
+    background-color: blue;
+}
+
+.forecast-img{
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    width: 150px;
+    height: 100px;
+    background-color: goldenrod;
+    /*background-image: url("/images/Weather-Icons/sunny.png")*/
+}
+
+.forecast-ctn{
+    background-color: whitesmoke;
+}

@@ -38,7 +38,9 @@ $(document).ready(function() {
                      *      - content.list[0].dt_txt -> "2019-02-22 00:03:00"
                      * */ 
                     for (let i = 4; i<40; i+=8){
-                        $('#5-weather').append('<div class="col"> ' + content.list[i].main.temp + '</div>');
+                        var date = content.list[i].dt_txt;
+                        $('#forecast').append('<div class="col forecast-ctn"><div class="forecast-date">' + date.substring(5, 10) +'</div><div class="forecast-high">' + content.list[i].main.temp + 
+                        '</div><br><div class="forecast-low">' + content.list[i+2].main.temp + '</div><div class="forecast-img">' + content.list[i].weather[0].main + '</div></div>');
                     }
                     console.log(content.list[0].main.temp);
                 });
