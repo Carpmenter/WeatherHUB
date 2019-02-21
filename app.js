@@ -24,10 +24,23 @@ $(document).ready(function() {
             success: function(data, textStatus, jqXHR){
 
                 $.getJSON('https://api.openweathermap.org/data/2.5/forecast?q=' + data.name +'&appid=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial', function(content){
-                    for (item in content){
-                        $('5-weather').append('<div>' + item + '</div>');
+                    console.log(content); 
+                    /* content.list[0-7]: Day 1
+                     * content.list[8-15]: Day 2
+                     *  1) get highest and lowest of 7 values
+                     *      - content.list[i].main.temp
+                     *  2) get average weather type by looping through 40 elements and count each type
+                     *      - content.list[i].weather[0].main 
+                     *  3) get total precip during day looping and adding 
+                     *      - content.list[i].rain if temp >=32
+                     *      - else content.list[i].snow
+                     *  4) get the date
+                     *      - content.list[0].dt_txt -> "2019-02-22 00:03:00"
+                     * */ 
+                    for (let i = 4; i<40; i+=8){
+                        $('#5-weather').append('<div class="col"> ' + content.list[i].main.temp + '</div>');
                     }
-                    $('5-weather').append('<div>' + content.name + '</div>');
+                    console.log(content.list[0].main.temp);
                 });
 
                 console.log(Object.keys(data).length);
@@ -39,27 +52,13 @@ $(document).ready(function() {
                 404: function() {
                   console.log( "page not found" );
                 }
-            }
-            
+            } 
         });
-        /*****************************************************************/
-        /* weather layer
-        $.get("https://tile.openweathermap.org/map/temp_new/3/4/5.png?appid=f20d0afcce1a8e9378946a0b3d0f107e", data,
-            function (data, textStatus, jqXHR) {
-                $('#map-weather').innerHTML = data;
-            }
-        );//sat.owm.io/sql/9/143/218?select=b4,b3,b2&order=best&appid=f20d0afcce1a8e9378946a0b3d0f107e
-        $.get("https://sat.owm.io/sql/3/96/48?appid=f20d0afcce1a8e9378946a0b3d0f107e", data,
-            function (data, textStatus, jqXHR) {
-                $('#map-weather').innerHTML = data;
-            }
-        );*/
-
     });
 
     //https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid={api_key}
 
-    var myMap = L.map('map').setView([46.87, -96.78], 6);
+    var myMap = L.map('map').setView([46.87, -96.78], 4);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibmNhcnBlbnQiLCJhIjoiY2pzZG0zbzkwMGhtdzQzdGw1NXl3ZTZqaCJ9.tERAKAxtU9bUPifk1FprZQ', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
