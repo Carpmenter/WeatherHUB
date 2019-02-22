@@ -76,7 +76,7 @@ $(document).ready(function() {
             for (let i = 4; i<40; i+=8){
                     var date = content.list[i].dt_txt;
                     $('#forecast').append('<div class="col forecast-ctn"><div class="forecast-date">' + date.substring(5, 10) +'</div><div class="forecast-high">' + content.list[i].main.temp + 
-                    '</div><br><div class="forecast-low">' + content.list[i+2].main.temp + '</div><div class="forecast-img">' + content.list[i].weather[0].main + '</div></div>');
+                    '</div><div class="forecast-low">' + content.list[i+2].main.temp + '</div><div class="forecast-img">' + content.list[i].weather[0].main + '</div></div>');
                 }
             });
     }

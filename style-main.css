@@ -53,36 +53,32 @@ body {
 }
 
 .forecast-high{
-    position: relative;
-    top: 80px;
-    left: 0;
-    width: 125px;
+    width: 40%;
     height: 100px;
-    background-color: red;
+    background-color: rgb(247, 125, 125);
 }
 
 .forecast-low{
-    position: relative;
-    bottom: 80px;
-    left: 0;
-    width: 125px;
+    width: 40%;
     height: 100px;
     background-color: rgb(145, 145, 245);
 }
 
 .forecast-img{
     position: absolute;
-    top: 80px;
-    right: 10px;
-    width: 150px;
-    height: 100px;
+    top: 15%;
+    right: 4%;
+    width: 55%;
+    height: 80%;
     background-color: goldenrod;
     /*background-image: url("/images/Weather-Icons/sunny.png")*/
 }
 
 .forecast-ctn{
     background-color: whitesmoke;
+    height: 90%;
 }
+
 /*** 5-day forcast END ***/
 
 .city-bnr{
