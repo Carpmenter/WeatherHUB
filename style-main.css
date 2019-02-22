@@ -1,6 +1,23 @@
-.ctn-header{
-    padding-top: 5px;
+.hdr{
+    background-color: rgb(4, 166, 216);
 }
+
+#site-nav{
+    width: 100%;
+    background-color: #333;
+}
+#site-nav li {
+    float: left;
+    display: block;
+    color: white;
+    text-align: left;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#site-nav li:hover {
+    background-color: #111;
+  }
 
 .main-background{
     padding-top: 1px;
@@ -20,7 +37,7 @@
     box-shadow: 10px 10px 5px grey;
 }
 
-.ctn-5day{
+.ctn-forecast{
     padding-top: 15px;
 }
 
@@ -31,7 +48,7 @@
     height: 400px; 
     width: 95%;
 }
-
+/*** 5-day forcast section ***/
 .forecast-date{
     position: relative;
     background-color: olive;
@@ -67,4 +84,33 @@
 
 .forecast-ctn{
     background-color: whitesmoke;
+}
+/*** 5-day forcast END ***/
+
+.city-bnr{
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 6px;
+    border: 2px solid rgb(197, 197, 197);
+    box-shadow: 5px 5px 5px rgb(211, 198, 186);
+    background-color: white;
+}
+
+.city-data{
+    padding: 1px;
+    font: "Trebuchet MS";
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+}
+
+.city-name{
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.city-temp{
+    font-size: 22px;
+}
+
+.city-wind{
+
 }

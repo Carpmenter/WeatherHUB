@@ -86,30 +86,17 @@ $(document).ready(function() {
     /****************************/
 
     function init(){
-        //document.getElementById('city-1').innerHTML = 'Miami';
-        $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=Fargo&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial", 
-            function (data) {
-                $('#city-1').html('<table class="table table-striped table-dark"><tbody><tr><td>Location: ' + data.name + '</td></tr><tr><td>Temperature: ' 
-                + data.main.temp + ' F</td></tr><tr><td>Wind Speed: ' + data.wind.speed + '</td></tr></tbody></table>');
+        var url = ['https://api.openweathermap.org/data/2.5/weather?q=Fargo&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial',
+            'https://api.openweathermap.org/data/2.5/weather?q=Denver&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial',
+            'https://api.openweathermap.org/data/2.5/weather?q=Banff&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial',
+            'https://api.openweathermap.org/data/2.5/weather?q=Miami&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial'];
+        
+        for (let i = 1; i < 5; i++){
+            $.getJSON(url[i-1], function (data) {
+                $('#city-' + i).html('<div class="city-data city-name">' + data.name + '</div><div class="city-data city-temp">' + data.main.temp 
+                + ' F</div><div class="city-data">' + data.wind.speed + ' mph</div>');
         });
-
-        $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=Denver&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial", 
-            function (data) {
-                $('#city-2').html('<table class="table table-striped table-dark"><tbody><tr><td>Location: ' + data.name + '</td></tr><tr><td>Temperature: ' 
-                + data.main.temp + ' F</td></tr><tr><td>Wind Speed: ' + data.wind.speed + '</td></tr></tbody></table>');
-        });
-
-        $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=Calgary&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial", 
-            function (data) {
-                $('#city-3').html('<table class="table table-striped table-dark"><tbody><tr><td>Location: ' + data.name + '</td></tr><tr><td>Temperature: ' 
-                + data.main.temp + ' F</td></tr><tr><td>Wind Speed: ' + data.wind.speed + '</td></tr></tbody></table>');
-        });
-
-        $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=Miami&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial", 
-            function (data) {
-                $('#city-4').html('<table class="table table-striped table-dark"><tbody><tr><td>Location: ' + data.name + '</td></tr><tr><td>Temperature: ' 
-                + data.main.temp + ' F</td></tr><tr><td>Wind Speed: ' + data.wind.speed + '</td></tr></tbody></table>');
-        });
+        }
         
     }
 });
