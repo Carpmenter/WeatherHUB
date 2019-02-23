@@ -12,15 +12,19 @@ body {
 }
 #site-nav{
     width: 100%;
-    background-color: #333;
+    background-color: rgb(32, 32, 32);
 }
 #site-nav li {
     float: left;
     display: block;
-    color: white;
+    color: rgba(252, 113, 0, 0.911);
     text-align: left;
     padding: 14px 16px;
     text-decoration: none;
+    text-shadow:
+    1px 1px 0 rgb(221, 221, 221);
+    font-family: Rockwell;
+    font-size: 22px;
 }
 
 #site-nav li:hover {
@@ -48,31 +52,37 @@ body {
 }
 /*** 5-day forcast section ***/
 .forecast-date{
-    position: relative;
-    background-color: olive;
+    align-content: center;
+    width: 100%;
+    text-align: center;
 }
 
 .forecast-high{
     width: 40%;
-    height: 75px;
-    background-color: rgb(247, 125, 125);
-    padding: 1em;
+    height: 70px;
+    left: 0;
+    text-align: center;
+    padding: 20px 0;
+    color: rgb(255, 77, 23);
+    font-size: 28px;
 }
 
 .forecast-low{
     width: 40%;
     height: 50px;
-    background-color: rgb(145, 145, 245);
+    text-align: center;
+    color: rgb(0, 101, 184);
+    font-size: 18px;
 }
 
 .forecast-img{
     position: absolute;
-    top: 15%;
-    right: 4%;
-    width: 55%;
-    height: 80%;
-    background-color: goldenrod;
-    /*background-image: url("images/Weather-Icons/sunny.png")*/
+    top: 24px;
+    right: 15px;
+    width: 120px;
+    height: 120px;
+    background-image: url("images/Weather-Icons/sunny.png");
+    font-size: 8px;
 }
 
 .forecast-ctn{
@@ -81,7 +91,10 @@ body {
 }
 
 #forecast{
-    overflow:auto
+    overflow:auto;
+    box-shadow: 5px 5px 5px rgb(97, 96, 95);
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 /*** 5-day forcast END ***/
@@ -93,12 +106,18 @@ body {
     border: 1px solid rgb(104, 104, 104);
     box-shadow: 5px 5px 5px rgb(97, 96, 95);
     background-color: rgba(233, 233, 233, 0.993);
+    height: 50%;
+    top: 40px;
 }
 
 .city-data{
     padding: 1px;
     font: "Trebuchet MS";
     font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+}
+
+.numberFont{
+    font-family: Futura;
 }
 
 .city-name{

@@ -20,7 +20,6 @@ $(document).ready(function() {
     $( "#search-fld" ).click(function(){
         $(this).val('');
     });
-    /********EVENTS END ***********/
 
     /***************************************************************************************/
     /************************ Function Declarations ***************************************/
@@ -73,9 +72,9 @@ $(document).ready(function() {
                      *  4) get the date
                      *      - content.list[0].dt_txt -> "2019-02-22 00:03:00"
                      * */
-            for (let i = 4; i<40; i+=8){
+            for (let i = 3; i<40; i+=8){
                     var date = content.list[i].dt_txt;
-                    $('#forecast').append('<div class="col flex forecast-ctn"><div class="forecast-date">' + date.substring(5, 10) +'</div><div class="forecast-high">' + content.list[i].main.temp + 
+                    $('#forecast').append('<div class="col forecast-ctn numberFont border"><div class="forecast-date">' + date.substring(5, 10) +'</div><div class="forecast-high">' + content.list[i].main.temp + 
                     '</div><div class="forecast-low">' + content.list[i+2].main.temp + '</div><div class="forecast-img">' + content.list[i].weather[0].main + '</div></div>');
                 }
             });
