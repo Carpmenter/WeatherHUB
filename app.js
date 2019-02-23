@@ -75,7 +75,7 @@ $(document).ready(function() {
                      * */
             for (let i = 4; i<40; i+=8){
                     var date = content.list[i].dt_txt;
-                    $('#forecast').append('<div class="col forecast-ctn"><div class="forecast-date">' + date.substring(5, 10) +'</div><div class="forecast-high">' + content.list[i].main.temp + 
+                    $('#forecast').append('<div class="col flex forecast-ctn"><div class="forecast-date">' + date.substring(5, 10) +'</div><div class="forecast-high">' + content.list[i].main.temp + 
                     '</div><div class="forecast-low">' + content.list[i+2].main.temp + '</div><div class="forecast-img">' + content.list[i].weather[0].main + '</div></div>');
                 }
             });
@@ -90,7 +90,7 @@ $(document).ready(function() {
         
         for (let i = 1; i < 5; i++){
             $.getJSON(url[i-1], function (data) {
-                $('#city-' + i).html('<div class="city-data city-name">' + data.name + '</div><div class="city-data city-temp">' + data.main.temp 
+                $('#city-' + i).html('<div class="city-data city-name">' + data.name + '</div><div class="city-data city-temp ' + tempColor(data.main.temp) + '">' + data.main.temp 
                 + ' F</div><div class="city-data">' + data.wind.speed + ' mph</div>');
             });
         }
@@ -113,6 +113,40 @@ $(document).ready(function() {
     
         var marker = L.marker([46.87, -96.78]).addTo(myMap);
         
+    }
+
+    function tempColor(temp){
+        let color;
+        switch (true){
+            case (temp < -15): 
+                color = 'pink';
+                break;
+            case (temp < 0):
+                color = 'purple';
+                break;
+            case (temp < 15):
+                color = 'blue';
+                break;
+            case (temp < 32):
+                color = 'light-blue';
+                break;  
+            case (temp < 50):
+                color = 'green';
+                break; 
+            case (temp < 65):
+                color = 'yellow-green';
+                break;
+            case (temp < 75):
+                color = 'yellow';
+                break;
+            case (temp < 90):
+                color = 'orange';
+                break;
+            default:
+                color = 'red';
+                break;
+        }
+        return color;
     }
      /************************* Function Declarations END ******************************************/
      /**********************************************************************************************/
