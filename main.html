@@ -30,16 +30,18 @@
                                 <li>Weather History</li>
                                 <li>Contact</li>
                                 <li><a class="orange" href="https://github.com/Carpmenter/WeatherHUB">About</a></li>
+                                <li style="float:right"><input id="search-fld" class="form-control" type="text" value="Find your city"></li>
+                                <li style="float:right"><button id="search-btn" class="btn btn-dark">Search</button></li>
                             </ul>
                         </div>
-                        <div class="row mr-5">
+                        <div class="row mr-5 mt-2">
                             <div id="logo" class="mx-5">
                                 <img src="images/logo.png" class="mx-auto d-block">
                             </div>
                             <div id="city-1" class="col mx-1 city-bnr"></div>
                             <div id="city-2" class="col mx-1 city-bnr"></div>
-                            <div id="city-3" class="col mx-1 city-bnr">city3</div>
-                            <div id="city-4" class="col ml-1 city-bnr">city4</div>
+                            <div id="city-3" class="col mx-1 city-bnr"></div>
+                            <div id="city-4" class="col ml-1 city-bnr"></div>
                         </div>
                     </div>
                 </div>
@@ -50,14 +52,13 @@
             <div class="container-fluid main-container">
                 <div class="row justify-content-center pt-5">
                     <!-- Current Weather content section -->
-                    <div id="cur-weather" class="col-5 data-columns pt-5 px-5">
-                        <div>
-                            <input class="form-control spacer-sm" id="search-fld" type="text" value="Enter Location">
-                            <button id="search-btn" class="btn btn-dark spacer-sm">GET current weather</button>
-                        </div> 
-                        <div id="search-result" class="spacer-sm">
-
-                        </div>
+                    <div id="cur-weather" class="col-5 data-columns py-5 px-5">
+                        <div id="cur-ctn">
+                                <div id="location-main">location</div>
+                                <div id="temp-main">temps</div>
+                                <div id="wind-main">wind</div>
+                                <div id="prec-main">recipitation</div> 
+                        </div>     
                     </div>
                     <!-- Hourly Weather content section -->
                     <div id="map-weather" class="col-5 data-columns py-5 px-5">

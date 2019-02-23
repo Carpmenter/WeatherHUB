@@ -16,13 +16,16 @@ body {
 #site-nav{
     width: 100%;
     background-color: rgb(32, 32, 32);
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 #site-nav li {
     float: left;
     display: block;
     color: rgba(252, 113, 0, 0.911);
     text-align: left;
-    padding: 14px 16px;
+    padding: 8px 16px;
     text-decoration: none;
     text-shadow:
     1px 1px 0 rgb(221, 221, 221);
@@ -36,7 +39,36 @@ body {
 
 #site-nav li:hover {
     background-color: #111;
-  }
+}
+#cur-ctn{
+    height: 100%;
+    border-width: 50px;
+    border-color: silver;
+}
+#location-main{
+    background-color: aquamarine;
+    height: 10%;
+    width: 100%;
+    left: 5%;
+}
+#temp-main{
+    background-color: rgb(73, 236, 32);
+    left: 5%;
+    width: 100%;
+    height: 55%;
+}
+#wind-main{
+    background-color: rgb(255, 127, 206);
+    float: right;
+    width: 50%;
+    height: 35%;
+}
+#prec-main{
+    background-color: rgb(227, 255, 127);
+    float: right;
+    width: 50%;
+    height: 35%;
+}
 
 #map-layers{
     background-color: rgba(233, 233, 233, 0.993);

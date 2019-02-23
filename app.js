@@ -5,7 +5,7 @@
 $(document).ready(function() {
     
     // Search button
-    var wetObject, myMap, globalCity, mapMarker;
+    var myMap, globalCity, mapMarker;
     var mapLayers = [];
     
     //State//
@@ -86,10 +86,10 @@ $(document).ready(function() {
                 myMap.setView([data.coord.lat, data.coord.lon], 4);
                 mapMarker.setLatLng([data.coord.lat, data.coord.lon]);
 
-                console.log(Object.keys(data).length);
-                document.getElementById('search-result').innerHTML = '<table class="table table-striped table-dark"><tbody><tr><td>Location: ' 
-                + data.name + '</td></tr><tr><td>Temperature: ' + data.main.temp + '</td></tr><tr><td>Wind Speed: ' + data.wind.speed + '</td></tr></tbody></table>';
-                wetObject = data;
+                $('#location-main').html(data.name);
+                $('#temp-main').html(data.main.temp);
+                $('#prec-main').html('Precipitation currently unavailable');
+                $('#wind-main').html(data.wind.speed);
             },
             statusCode: {
                 404: function() {
