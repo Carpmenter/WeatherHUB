@@ -29,7 +29,7 @@
                                 <li>Radar</li>
                                 <li>Weather History</li>
                                 <li>Contact</li>
-                                <li>About</li>
+                                <li><a class="orange" href="https://github.com/Carpmenter/WeatherHUB">About</a></li>
                             </ul>
                         </div>
                         <div class="row mr-5">
@@ -50,7 +50,7 @@
             <div class="container-fluid main-container">
                 <div class="row justify-content-center pt-5">
                     <!-- Current Weather content section -->
-                    <div id="cur-weather" class="col-5 data-columns ctn-shadow">
+                    <div id="cur-weather" class="col-5 data-columns">
                         <div>
                             <input class="form-control spacer-sm" id="search-fld" type="text" value="Enter Location">
                             <button id="search-btn" class="btn btn-dark spacer-sm">GET current weather</button>
@@ -60,8 +60,16 @@
                         </div>
                     </div>
                     <!-- Hourly Weather content section -->
-                    <div id="map-weather" class="col-5 data-columns ctn-shadow py-3 px-3">
-                        <div id="map" class="ctn-shadow"></div>
+                    <div id="map-weather" class="col-5 data-columns">
+                        <div class="row map-selectors">
+                            <ul id="map-layers" class="rounded-lg">
+                                <li>Wind</li>
+                                <li>Precipitation</li>
+                                <li>Temperature</li>
+                                <li>Clouds</li>
+                            </ul>
+                        </div>
+                        <div id="map" class="rounded-lg"></div>
                         <!---<img src="images/hourlyWeather.jpg" class="center">-->
                     </div>
                 </div>

@@ -5,7 +5,7 @@
 $(document).ready(function() {
     
     // Search button
-    var wetObject, myMap, globalCity;
+    var wetObject, myMap, globalCity, mapMarker;
 
     init();
 
@@ -42,6 +42,9 @@ $(document).ready(function() {
                 globalCity = data.name;
                 getForecast();
 
+                myMap.setView([data.coord.lat, data.coord.lon], 4);
+                mapMarker.setLatLng([data.coord.lat, data.coord.lon]);
+
                 console.log(Object.keys(data).length);
                 document.getElementById('search-result').innerHTML = '<table class="table table-striped table-dark"><tbody><tr><td>Location: ' 
                 + data.name + '</td></tr><tr><td>Temperature: ' + data.main.temp + '</td></tr><tr><td>Wind Speed: ' + data.wind.speed + '</td></tr></tbody></table>';
@@ -72,16 +75,18 @@ $(document).ready(function() {
                      *  4) get the date
                      *      - content.list[0].dt_txt -> "2019-02-22 00:03:00"
                      * */
-            for (let i = 3; i<40; i+=8){
+            for (let i = 2; i<40; i+=8){
                     var date = content.list[i].dt_txt;
-                    $('#forecast').append('<div class="col forecast-ctn numberFont border"><div class="forecast-date">' + date.substring(5, 10) +'</div><div class="forecast-high">' + content.list[i].main.temp + 
-                    '</div><div class="forecast-low">' + content.list[i+2].main.temp + '</div><div class="forecast-img">' + content.list[i].weather[0].main + '</div></div>');
+                    let image = weatherType(content.list[i].weather[0].main);
+                    $('#forecast').append('<div class="col forecast-ctn numberFont border"><div class="forecast-date">' + date.substring(5, 10) +'</div><div class="forecast-high">' + Math.round(content.list[i+2].main.temp) + 
+                    ' F</div><div class="forecast-low">' + Math.round(content.list[i].main.temp) + ' F</div><div class="forecast-img">' + content.list[i].weather[0].main + '</div></div>');
                 }
             });
     }
 
     function init(){
         globalCity = "Fargo";
+        myMap 
         var url = ['https://api.openweathermap.org/data/2.5/weather?q=Fargo&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial',
             'https://api.openweathermap.org/data/2.5/weather?q=Denver&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial',
             'https://api.openweathermap.org/data/2.5/weather?q=Banff&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial',
@@ -97,7 +102,7 @@ $(document).ready(function() {
         getForecast();
 
         /*****   Default Map Setup    *****/ 
-        var myMap = L.map('map').setView([46.87, -96.78], 4);
+        myMap = L.map('map').setView([46.87, -96.78], 4);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibmNhcnBlbnQiLCJhIjoiY2pzZG0zbzkwMGhtdzQzdGw1NXl3ZTZqaCJ9.tERAKAxtU9bUPifk1FprZQ', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
@@ -110,10 +115,17 @@ $(document).ready(function() {
             accessToken: 'f20d0afcce1a8e9378946a0b3d0f107e'
         }).addTo(myMap);
     
-        var marker = L.marker([46.87, -96.78]).addTo(myMap);
+        mapMarker = L.marker([46.87, -96.78]).addTo(myMap);
         
     }
 
+    function weatherType(weather){
+        switch (weather){
+            case 'Snow': return ""
+        }
+    }
+
+    // Returns a color for the given temperature
     function tempColor(temp){
         let color;
         switch (true){
