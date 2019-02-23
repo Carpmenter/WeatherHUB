@@ -50,7 +50,7 @@
             <div class="container-fluid main-container">
                 <div class="row justify-content-center pt-5">
                     <!-- Current Weather content section -->
-                    <div id="cur-weather" class="col-5 data-columns">
+                    <div id="cur-weather" class="col-5 data-columns pt-5 px-5">
                         <div>
                             <input class="form-control spacer-sm" id="search-fld" type="text" value="Enter Location">
                             <button id="search-btn" class="btn btn-dark spacer-sm">GET current weather</button>
@@ -60,13 +60,13 @@
                         </div>
                     </div>
                     <!-- Hourly Weather content section -->
-                    <div id="map-weather" class="col-5 data-columns">
+                    <div id="map-weather" class="col-5 data-columns py-5 px-5">
                         <div class="row map-selectors">
                             <ul id="map-layers" class="rounded-lg">
-                                <li>Wind</li>
-                                <li>Precipitation</li>
-                                <li>Temperature</li>
-                                <li>Clouds</li>
+                                <li id="layer-1" class="">Wind</li>
+                                <li id="layer-3" class="">Precipitation</li>
+                                <li id="layer-0" class="">Temperature</li>
+                                <li id="layer-2" class="">Clouds</li>
                             </ul>
                         </div>
                         <div id="map" class="rounded-lg"></div>

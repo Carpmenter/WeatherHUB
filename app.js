@@ -6,6 +6,10 @@ $(document).ready(function() {
     
     // Search button
     var wetObject, myMap, globalCity, mapMarker;
+    var mapLayers = [];
+    
+    //State//
+    var layerState;
 
     init();
 
@@ -19,6 +23,43 @@ $(document).ready(function() {
     
     $( "#search-fld" ).click(function(){
         $(this).val('');
+    });
+
+    $('#layer-1').click(function(){
+        if(layerState !== undefined){
+            mapLayers[layerState].remove();
+            $('#layer-' + layerState).toggleClass('active-layer');
+        }
+        $(this).toggleClass('active-layer');
+        mapLayers[1].addTo(myMap);
+        layerState = 1;
+    });
+    $('#layer-0').click(function(){
+        if(layerState !== undefined){
+            mapLayers[layerState].remove();
+            $('#layer-' + layerState).toggleClass('active-layer');
+        }
+        $(this).toggleClass('active-layer');
+        mapLayers[0].addTo(myMap);
+        layerState = 0;
+    });
+    $('#layer-3').click(function(){
+        if(layerState !== undefined){
+            mapLayers[layerState].remove();
+            $('#layer-' + layerState).toggleClass('active-layer');
+        }
+        $(this).toggleClass('active-layer');
+        mapLayers[3].addTo(myMap);
+        layerState = 3;
+    });
+    $('#layer-2').click(function(){
+        if(layerState !== undefined){
+            mapLayers[layerState].remove();
+            $('#layer-' + layerState).toggleClass('active-layer');
+        }
+        $(this).toggleClass('active-layer');
+        mapLayers[2].addTo(myMap);
+        layerState = 2;
     });
 
     /***************************************************************************************/
@@ -87,14 +128,14 @@ $(document).ready(function() {
     function init(){
         globalCity = "Fargo";
         myMap 
-        var url = ['https://api.openweathermap.org/data/2.5/weather?q=Fargo&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial',
+        var url = ['https://api.openweathermap.org/data/2.5/weather?q=Nashville&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial',
             'https://api.openweathermap.org/data/2.5/weather?q=Denver&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial',
             'https://api.openweathermap.org/data/2.5/weather?q=Banff&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial',
             'https://api.openweathermap.org/data/2.5/weather?q=Miami&APPID=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial'];
         
         for (let i = 1; i < 5; i++){
             $.getJSON(url[i-1], function (data) {
-                $('#city-' + i).html('<div class="city-data city-name">' + data.name + '</div><div class="city-data city-temp ' + tempColor(data.main.temp) + '">' + data.main.temp 
+                $('#city-' + i).html('<div class="city-data city-name">' + data.name + '</div><div class="city-data city-temp ' + tempColor(data.main.temp) + '">' + Math.round(data.main.temp)
                 + ' F</div><div class="city-data">' + data.wind.speed + ' mph</div>');
             });
         }
@@ -109,11 +150,10 @@ $(document).ready(function() {
             id: 'mapbox.streets'
         }).addTo(myMap);
         
-        L.tileLayer('https://tile.openweathermap.org/map/{id}/{z}/{x}/{y}.png?appid={accessToken}', {
-            maxZoom: 18,
-            id: 'temp_new',
-            accessToken: 'f20d0afcce1a8e9378946a0b3d0f107e'
-        }).addTo(myMap);
+        mapLayers.push(L.tileLayer('https://tile.openweathermap.org/map/{id}/{z}/{x}/{y}.png?appid={accessToken}', {id: 'temp_new', accessToken: 'f20d0afcce1a8e9378946a0b3d0f107e'}));
+        mapLayers.push(L.tileLayer('https://tile.openweathermap.org/map/{id}/{z}/{x}/{y}.png?appid={accessToken}', {id: 'wind_new', accessToken: 'f20d0afcce1a8e9378946a0b3d0f107e'}));
+        mapLayers.push(L.tileLayer('https://tile.openweathermap.org/map/{id}/{z}/{x}/{y}.png?appid={accessToken}', {id: 'clouds_new', accessToken: 'f20d0afcce1a8e9378946a0b3d0f107e'}));
+        mapLayers.push(L.tileLayer('https://tile.openweathermap.org/map/{id}/{z}/{x}/{y}.png?appid={accessToken}', {id: 'precipitation_new', accessToken: 'f20d0afcce1a8e9378946a0b3d0f107e'}));
     
         mapMarker = L.marker([46.87, -96.78]).addTo(myMap);
         

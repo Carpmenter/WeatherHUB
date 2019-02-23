@@ -10,6 +10,9 @@ body {
     justify-content: center;
     padding: 10px;
 }
+.fade{
+    box-shadow: 0 0 5px 10px rgb(55, 133, 143);
+}
 #site-nav{
     width: 100%;
     background-color: rgb(32, 32, 32);
@@ -36,8 +39,9 @@ body {
   }
 
 #map-layers{
-    background-color: rgb(228, 228, 228);
+    background-color: rgba(233, 233, 233, 0.993);
     padding-right: 50px;
+    box-shadow: 3px 3px 3px rgb(104, 104, 104);
 }
 #map-layers li {
     float: right;
@@ -49,7 +53,13 @@ body {
     font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
 }
 #map-layers li:hover {
-    background-color: rgba(252, 113, 0, 0.911);
+    background-color: rgba(252, 113, 0, 0.733);opacity:0.8;
+    box-shadow: 2px 2px 2px rgb(114, 72, 30);
+    cursor:pointer;
+}
+.active-layer {
+    background-color: rgb(189, 187, 187);
+    color: white;
 }
 
 .map-selectors{
@@ -57,6 +67,15 @@ body {
 }
 .data-columns{
     background-color: rgb(32, 32, 32);
+    box-shadow: 5px 5px 5px rgb(58, 58, 58);
+}
+#cur-weather{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+#map-weather{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .ctn-forecast{
@@ -110,7 +129,7 @@ body {
 }
 
 .forecast-ctn{
-    background-color: whitesmoke;
+    background-color: rgba(233, 233, 233, 0.993);
     height: auto;
 }
 
