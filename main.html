@@ -26,10 +26,10 @@
                     <div id="city-banner" class="col">
                         <div class="row myFont">
                             <ul id="site-nav">
-                                <li>Radar</li>
-                                <li>Weather History</li>
-                                <li>Contact</li>
-                                <li><a class="orange" href="https://github.com/Carpmenter/WeatherHUB">About</a></li>
+                                <li class="pt-2">Radar</li>
+                                <li class="pt-2">Weather History</li>
+                                <li class="pt-2">Contact</li>
+                                <li><a class="orange pt-2" href="https://github.com/Carpmenter/WeatherHUB">About</a></li>
                                 <li style="float:right"><input id="search-fld" class="form-control" type="text" value="Find your city"></li>
                                 <li style="float:right"><button id="search-btn" class="btn btn-dark">Search</button></li>
                             </ul>
@@ -48,16 +48,16 @@
             </div>
         </header>
 
-        <main class="main-background">
+        <main class="main-background" id="main">
             <div class="container-fluid main-container">
-                <div class="row justify-content-center pt-5">
+                <div class="row justify-content-center pt-5" id="main-row">
                     <!-- Current Weather content section -->
                     <div id="cur-weather" class="col-5 data-columns py-5 px-5">
                         <div id="cur-ctn">
                                 <div id="location-main">location</div>
-                                <div id="temp-main">temps</div>
-                                <div id="wind-main">wind</div>
-                                <div id="prec-main">recipitation</div> 
+                                <div id="temp-main">temperature</div>
+                                <div id="wind-main">wind speed</div>
+                                <div id="prec-main">precipitation</div> 
                         </div>     
                     </div>
                     <!-- Hourly Weather content section -->

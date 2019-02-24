@@ -1,9 +1,9 @@
 .hdr{
-    background-color: rgb(55, 133, 143);
+    background-color: rgb(21, 95, 117);
 }
 
 body {
-    background-color: rgb(55, 133, 143);
+    background-color: rgb(21, 95, 117);
   }
   
 .logo-ctn{
@@ -29,8 +29,9 @@ body {
     text-decoration: none;
     text-shadow:
     1px 1px 0 rgb(221, 221, 221);
-    font-family: Rockwell;
-    font-size: 22px;
+    font-family: Futura;
+    font-weight: bold;
+    font-size: 20px;
 }
 #site-nav li a{
     color: rgba(252, 113, 0, 0.911);
@@ -46,32 +47,46 @@ body {
     border-color: silver;
 }
 #location-main{
-    background-color: aquamarine;
+    background-image: url("images/stars.jpg");
     height: 10%;
     width: 100%;
+    font-size: 32px;
+    font-family: Futura;
+    color: white;
     left: 5%;
 }
 #temp-main{
-    background-color: rgb(73, 236, 32);
+    background-image: url("images/globalBack2.jpg");
     left: 5%;
     width: 100%;
     height: 55%;
+    font-size: 32px;
+    font-family: Futura;
+    color: white;
 }
 #wind-main{
-    background-color: rgb(255, 127, 206);
+    background-image: url("images/pool.jpeg");
     float: right;
     width: 50%;
     height: 35%;
+    font-size: 36px;
+    font-family: Futura;
+    text-align: center;
+    color: white;
+    padding-top: 10%;
 }
 #prec-main{
-    background-color: rgb(227, 255, 127);
+    background-image: url("images/globalBack.jpg");
     float: right;
     width: 50%;
     height: 35%;
+    font-size: 32px;
+    font-family: Futura;
+    color: white;
 }
 
 #map-layers{
-    background-color: rgba(233, 233, 233, 0.993);
+    background-image: linear-gradient(rgb(175, 175, 175), rgb(255, 255, 255), rgb(175, 175, 175));
     padding-right: 50px;
     box-shadow: 3px 3px 3px rgb(104, 104, 104);
 }
@@ -85,13 +100,17 @@ body {
     font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
 }
 #map-layers li:hover {
-    background-color: rgba(252, 113, 0, 0.733);opacity:0.8;
-    box-shadow: 2px 2px 2px rgb(114, 72, 30);
+    background-image: linear-gradient(rgb(21, 95, 117), rgb(144, 187, 204), rgb(21, 95, 117));opacity:0.9;
+    box-shadow: 2px 2px 2px rgb(33, 60, 100);
+    border-top-right-radius: 5% 50px;
+    border-bottom-right-radius: 5% 50px;
     cursor:pointer;
 }
 .active-layer {
-    background-color: rgb(189, 187, 187);
+    background-image: linear-gradient(rgb(153, 153, 153), rgb(224, 224, 224), rgb(153, 153, 153));
     color: white;
+    border-top-right-radius: 3% 50%;
+    border-bottom-right-radius: 3% 50%;
 }
 
 .map-selectors{
@@ -135,7 +154,6 @@ body {
 .forecast-high{
     width: 40%;
     height: 70px;
-    left: 0;
     text-align: center;
     padding: 20px 0;
     color: rgb(255, 77, 23);
@@ -153,7 +171,7 @@ body {
 .forecast-img{
     position: absolute;
     top: 24px;
-    right: 15px;
+    right: 10%;
     width: 120px;
     height: 120px;
     background-image: url("images/Weather-Icons/sunny.png");
@@ -161,26 +179,30 @@ body {
 }
 
 .forecast-ctn{
-    background-color: rgba(233, 233, 233, 0.993);
+    background-image: linear-gradient(rgb(199, 199, 199), rgb(255, 255, 255), rgb(199, 199, 199));
     height: auto;
 }
 
 #forecast{
     overflow:auto;
-    box-shadow: 5px 5px 5px rgb(97, 96, 95);
+    box-shadow: 4px 4px 4px rgb(49, 49, 49);
     margin-bottom: 20px;
     margin-top: 20px;
 }
 
 /*** 5-day forcast END ***/
-
+.city-bnr:hover{
+    background-image: linear-gradient( rgb(219, 219, 219), rgb(235, 233, 233), rgb(219, 219, 219));
+    cursor: pointer;
+}
 .city-bnr{
     text-align: center;
     padding: 20px 0;
     border-radius: 6px;
     border: 1px solid rgb(104, 104, 104);
-    box-shadow: 5px 5px 5px rgb(97, 96, 95);
-    background-color: rgba(233, 233, 233, 0.993);
+    box-shadow: 4px 4px 4px rgb(49, 49, 49);
+    /*background: linear-gradient(to bottom right, #ffffff 0%, #c4c4c4 100%);*/
+    background-image: linear-gradient( rgb(235, 235, 235), rgb(255, 255, 255), rgb(175, 175, 175));
     height: 50%;
     top: 40px;
 }
@@ -202,6 +224,9 @@ body {
 
 .city-temp{
     font-size: 22px;
+    font-weight: bold;
+    text-shadow:
+    1px 1px 0 rgb(7, 7, 7);
 }
 
 /*** Temperature Colors ***/

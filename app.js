@@ -66,7 +66,7 @@ $(document).ready(function() {
     /************************ Function Declarations ***************************************/
 
     function getResults(){
-
+        // change so this method can be called from seperate links on page
         let city = document.getElementById('search-fld').value;
 
         /*************** Attempting 404 Error Handling for invalid Cities 
@@ -76,7 +76,7 @@ $(document).ready(function() {
             method: 'GET',
             error: function(jqXHR, textStatus, errorThrown){
                 console.log('Text Status: ' + textStatus + ' Error: ' + errorThrown);
-                document.getElementById('search-result').textContent = 'City not found. Try again';
+                document.getElementById('search-fld').value = 'City not found. Try again'; //Uncaught TypeError: Cannot set property 'textContent' of null
             },
             success: function(data, textStatus, jqXHR){
                 $('#forecast').html('');
@@ -87,9 +87,11 @@ $(document).ready(function() {
                 mapMarker.setLatLng([data.coord.lat, data.coord.lon]);
 
                 $('#location-main').html(data.name);
-                $('#temp-main').html(data.main.temp);
+                $('#temp-main').html(Math.round(data.main.temp) + ' F');
                 $('#prec-main').html('Precipitation currently unavailable');
-                $('#wind-main').html(data.wind.speed);
+                $('#wind-main').html(data.wind.speed + ' mph');
+                
+                document.getElementById('main-row').scrollIntoView();
             },
             statusCode: {
                 404: function() {
