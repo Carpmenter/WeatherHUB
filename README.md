@@ -6,3 +6,7 @@
 - OpenWeatherMap API
 - Leaflet for weather Map
 - Bootstrap 4 for styling/layout
+
+Leaflet: http://leafletjs.com/
+Map data: https://www.openstreetmap.org/
+Imagery: https://www.mapbox.com/ 
