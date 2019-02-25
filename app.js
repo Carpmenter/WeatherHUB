@@ -104,13 +104,26 @@ $(document).ready(function() {
     function getForecast(){
         $.getJSON('https://api.openweathermap.org/data/2.5/forecast?q=' + globalCity +'&appid=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial', function(content){
 
-                    /* Re structure so this anon function is updating forecast after search and have
-                     * the forecast content populate to a defualt city when page loads
-                     * content.list[0-7]: Day 1
-                     * content.list[8-15]: Day 2
-                     *  1) get highest and lowest of 7 values
-                     *      - content.list[i].main.temp
-                     *  2) get average weather type by looping through 40 elements and count each type
+            var count = 0;
+
+            // loop through 5-day array (content.list[40]) and get high/low for each day
+            for (let i=0; i<5; i++){
+                var highs = [];
+                var lows = [];
+
+                for (let j=0; j<8; j++){
+                    highs.push(content.list[count].main.temp);
+                    lows.push(content.list[count].main.temp);
+                    count++;
+                }
+
+                $('#forecast').append('<div class="col forecast-ctn numberFont border"><div class="forecast-date">' + content.list[count-1].dt_txt.substring(5, 10) +'</div><div class="forecast-high">'
+                 + Math.round(Math.max(...highs)) + ' F</div><div class="forecast-low">' + Math.round(Math.min(...lows)) + ' F</div><div class="forecast-img">' + content.list[count-1].weather[0].main + '</div></div>');
+            }
+
+           // dailyHighs[0] = Math.max(content.list[0].main.temp, content.list[1].main.temp, content.list[2].main.temp, content.list[3].main.temp, content.list[4].main.temp, content.list[5].main.temp, content.list[6].main.temp, content.list[7].main.temp);
+           // dailyLows[0] = Math.min(content.list[0].main.temp, content.list[1].main.temp, content.list[2].main.temp, content.list[3].main.temp, content.list[4].main.temp, content.list[5].main.temp, content.list[6].main.temp, content.list[7].main.temp);
+                     /*  2) get average weather type by looping through 40 elements and count each type
                      *      - content.list[i].weather[0].main 
                      *  3) get total precip during day looping and adding 
                      *      - content.list[i].rain if temp >=32
@@ -118,12 +131,6 @@ $(document).ready(function() {
                      *  4) get the date
                      *      - content.list[0].dt_txt -> "2019-02-22 00:03:00"
                      * */
-            for (let i = 2; i<40; i+=8){
-                    var date = content.list[i].dt_txt;
-                    let image = weatherType(content.list[i].weather[0].main);
-                    $('#forecast').append('<div class="col forecast-ctn numberFont border"><div class="forecast-date">' + date.substring(5, 10) +'</div><div class="forecast-high">' + Math.round(content.list[i+2].main.temp) + 
-                    ' F</div><div class="forecast-low">' + Math.round(content.list[i].main.temp) + ' F</div><div class="forecast-img">' + content.list[i].weather[0].main + '</div></div>');
-                }
             });
     }
 
