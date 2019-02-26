@@ -89,7 +89,7 @@ $(document).ready(function() {
                 $('#location-main').html(data.name);
                 $('#temp-main').html(Math.round(data.main.temp) + ' F');
                 $('#prec-main').html('Precipitation currently unavailable');
-                $('#wind-main').html(data.wind.speed + ' mph');
+                $('#wind-main').html(Math.round(data.wind.speed) + ' mph');
                 
                 document.getElementById('main-row').scrollIntoView();
             },
@@ -117,7 +117,8 @@ $(document).ready(function() {
                     count++;
                 }
 
-                $('#forecast').append('<div class="col forecast-ctn numberFont border"><div class="forecast-date">' + content.list[count-1].dt_txt.substring(5, 10) +'</div><div class="forecast-high">'
+                $('#forecast-hdr').html(globalCity + ' 5-day Forecast');
+                $('#forecast').append('<div class="col forecast-ctn numberFont"><div class="forecast-date">' + content.list[count-1].dt_txt.substring(5, 10) +'</div><div class="forecast-high">'
                  + Math.round(Math.max(...highs)) + ' F</div><div class="forecast-low">' + Math.round(Math.min(...lows)) + ' F</div><div class="forecast-img">' + content.list[count-1].weather[0].main + '</div></div>');
             }
 

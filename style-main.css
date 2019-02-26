@@ -29,9 +29,9 @@ body {
     text-decoration: none;
     text-shadow:
     1px 1px 0 rgb(221, 221, 221);
-    font-family: Futura;
+    font-family: 'Advent Pro';
     font-weight: bold;
-    font-size: 20px;
+    font-size: 22px;
 }
 #site-nav li a{
     color: rgba(252, 113, 0, 0.911);
@@ -50,8 +50,8 @@ body {
     background-image: url("images/stars.jpg");
     height: 10%;
     width: 100%;
-    font-size: 32px;
-    font-family: Futura;
+    font-size: 36px;
+    font-family: 'Advent Pro';
     color: white;
     left: 5%;
 }
@@ -60,8 +60,8 @@ body {
     left: 5%;
     width: 100%;
     height: 55%;
-    font-size: 32px;
-    font-family: Futura;
+    font-size: 36px;
+    font-family: 'Advent Pro';
     color: white;
 }
 #wind-main{
@@ -69,8 +69,8 @@ body {
     float: right;
     width: 50%;
     height: 35%;
-    font-size: 36px;
-    font-family: Futura;
+    font-size: 38px;
+    font-family: 'Advent Pro';
     text-align: center;
     color: white;
     padding-top: 10%;
@@ -80,8 +80,8 @@ body {
     float: right;
     width: 50%;
     height: 35%;
-    font-size: 32px;
-    font-family: Futura;
+    font-size: 36px;
+    font-family: 'Advent Pro';
     color: white;
 }
 
@@ -97,7 +97,8 @@ body {
     text-align: left;
     padding: 9px 10px;
     text-decoration: none;
-    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+    font-family: 'Advent Pro';
+    font-size: 20px;
 }
 #map-layers li:hover {
     background-image: linear-gradient(rgb(21, 95, 117), rgb(144, 187, 204), rgb(21, 95, 117));opacity:0.9;
@@ -147,8 +148,9 @@ body {
 /*** 5-day forcast section ***/
 .forecast-date{
     align-content: center;
-    width: 100%;
+    width: 75%;
     text-align: center;
+    font-size: 18px;
 }
 
 .forecast-high{
@@ -157,7 +159,7 @@ body {
     text-align: center;
     padding: 20px 0;
     color: rgb(255, 77, 23);
-    font-size: 28px;
+    font-size: 32px;
 }
 
 .forecast-low{
@@ -165,7 +167,7 @@ body {
     height: 50px;
     text-align: center;
     color: rgb(0, 101, 184);
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .forecast-img{
@@ -179,15 +181,31 @@ body {
 }
 
 .forecast-ctn{
-    background-image: linear-gradient(rgb(199, 199, 199), rgb(255, 255, 255), rgb(199, 199, 199));
+    background-image: linear-gradient(rgb(214, 214, 214), rgb(255, 255, 255), rgb(199, 199, 199));
     height: auto;
+    font-weight: bold;
+    padding-bottom: 10px;
 }
-
+#forecast-hdr{
+    text-align: center;
+    color: rgba(255, 151, 32, 0.911);
+    font-size: 48px;
+    text-shadow:
+    2px 2px 2px rgb(5, 5, 5);
+    background-image: linear-gradient( rgb(156, 156, 156), rgb(214, 214, 214));
+    box-shadow: 4px 4px 4px rgb(49, 49, 49);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    margin-top: 20px;
+    font-family: 'Advent Pro';
+    font-weight: bold;
+}
 #forecast{
     overflow:auto;
     box-shadow: 4px 4px 4px rgb(49, 49, 49);
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
     margin-bottom: 20px;
-    margin-top: 20px;
 }
 
 /*** 5-day forcast END ***/
@@ -209,12 +227,11 @@ body {
 
 .city-data{
     padding: 1px;
-    font: "Trebuchet MS";
-    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+    font-family: 'Advent Pro';
 }
 
 .numberFont{
-    font-family: Futura;
+    font-family: 'Advent Pro';
 }
 
 .city-name{
