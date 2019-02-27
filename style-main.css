@@ -45,27 +45,26 @@ body {
     height: 100%;
     border-width: 50px;
     border-color: silver;
+    background-color: rgb(212, 212, 212);
 }
 #location-main{
-    background-image: url("images/stars.jpg");
     height: 10%;
     width: 100%;
     font-size: 36px;
     font-family: 'Advent Pro';
     color: white;
-    left: 5%;
+    text-align: center;
 }
 #temp-main{
-    background-image: url("images/globalBack2.jpg");
     left: 5%;
     width: 100%;
     height: 55%;
     font-size: 36px;
     font-family: 'Advent Pro';
     color: white;
+    padding-top: 15%;
 }
 #wind-main{
-    background-image: url("images/pool.jpeg");
     float: right;
     width: 50%;
     height: 35%;
@@ -73,16 +72,15 @@ body {
     font-family: 'Advent Pro';
     text-align: center;
     color: white;
-    padding-top: 10%;
 }
 #prec-main{
-    background-image: url("images/globalBack.jpg");
     float: right;
     width: 50%;
     height: 35%;
     font-size: 36px;
     font-family: 'Advent Pro';
     color: white;
+    text-align: center;
 }
 
 #map-layers{
@@ -176,8 +174,19 @@ body {
     right: 10%;
     width: 120px;
     height: 120px;
-    background-image: url("images/Weather-Icons/sunny.png");
     font-size: 8px;
+}
+.Clear-img{
+    background-image: url('images/Weather-Icons/Clear.png');
+}
+.Clouds-img{
+    background-image: url('images/Weather-Icons/Clouds.png');
+}
+.Rain-img{
+    background-image: url('images/Weather-Icons/Rain.png');
+}
+.Snow-img{
+    background-image: url('images/Weather-Icons/Snow.png');
 }
 
 .forecast-ctn{

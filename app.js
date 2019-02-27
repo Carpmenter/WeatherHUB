@@ -25,6 +25,7 @@ $(document).ready(function() {
         $(this).val('');
     });
 
+    // Handling layer selection for map
     $('#layer-1').click(function(){
         if(layerState !== undefined){
             mapLayers[layerState].remove();
@@ -62,12 +63,34 @@ $(document).ready(function() {
         layerState = 2;
     });
 
+    // handling click events for city banner
+    $('#city-1').click(function(){
+        $('#search-fld').val($('#cityname-1').html());
+        getResults();
+    });
+    $('#city-2').click(function(){
+        $('#search-fld').val($('#cityname-2').html());
+        getResults();
+    });
+    $('#city-3').click(function(){
+        $('#search-fld').val($('#cityname-3').html());
+        getResults();
+    });
+    $('#city-4').click(function(){
+        $('#search-fld').val($('#cityname-4').html());
+        getResults();
+    });
+
     /***************************************************************************************/
     /************************ Function Declarations ***************************************/
 
-    function getResults(){
+    function getResults(city){
         // change so this method can be called from seperate links on page
-        let city = document.getElementById('search-fld').value;
+        var initLoad = true;
+        if(city === undefined){
+            city = document.getElementById('search-fld').value;
+            initLoad = false;
+        }
 
         /*************** Attempting 404 Error Handling for invalid Cities 
         ******* have some sort of autofill/search for cities to eliminate invalid page (404)*/
@@ -91,7 +114,7 @@ $(document).ready(function() {
                 $('#prec-main').html('Precipitation currently unavailable');
                 $('#wind-main').html(Math.round(data.wind.speed) + ' mph');
                 
-                document.getElementById('main-row').scrollIntoView();
+                if(!initLoad){ document.getElementById('main-row').scrollIntoView(); }
             },
             statusCode: {
                 404: function() {
@@ -112,14 +135,23 @@ $(document).ready(function() {
                 var lows = [];
 
                 for (let j=0; j<8; j++){
-                    highs.push(content.list[count].main.temp);
-                    lows.push(content.list[count].main.temp);
+                    console.log(count);
+                    if(count === content.cnt){
+                        highs.push(content.list[count-1].main.temp);
+                        lows.push(content.list[count-1].main.temp);
+                        count--;
+                    } else{
+                        highs.push(content.list[count].main.temp);
+                        lows.push(content.list[count].main.temp);
+                    }
                     count++;
                 }
 
                 $('#forecast-hdr').html(globalCity + ' 5-day Forecast');
-                $('#forecast').append('<div class="col forecast-ctn numberFont"><div class="forecast-date">' + content.list[count-1].dt_txt.substring(5, 10) +'</div><div class="forecast-high">'
-                 + Math.round(Math.max(...highs)) + ' F</div><div class="forecast-low">' + Math.round(Math.min(...lows)) + ' F</div><div class="forecast-img">' + content.list[count-1].weather[0].main + '</div></div>');
+                $('#forecast').append('<div class="col forecast-ctn numberFont"><div class="forecast-date">' 
+                 + content.list[count-1].dt_txt.substring(5, 10) +'</div><div class="forecast-high">' + Math.round(Math.max(...highs)) 
+                 + ' F</div><div class="forecast-low">' + Math.round(Math.min(...lows)) + ' F</div><div class="forecast-img ' 
+                 + content.list[count-1].weather[0].main + '-img">' + content.list[count-1].weather[0].main + '</div></div>');
             }
 
            // dailyHighs[0] = Math.max(content.list[0].main.temp, content.list[1].main.temp, content.list[2].main.temp, content.list[3].main.temp, content.list[4].main.temp, content.list[5].main.temp, content.list[6].main.temp, content.list[7].main.temp);
@@ -145,12 +177,13 @@ $(document).ready(function() {
         
         for (let i = 1; i < 5; i++){
             $.getJSON(url[i-1], function (data) {
-                $('#city-' + i).html('<div class="city-data city-name">' + data.name + '</div><div class="city-data city-temp ' + tempColor(data.main.temp) + '">' + Math.round(data.main.temp)
-                + ' F</div><div class="city-data">' + data.wind.speed + ' mph</div>');
+                $('#city-' + i).html('<div class="city-data city-name" id="cityname-' + i +'">' + data.name + '</div><div class="city-data city-temp ' + tempColor(data.main.temp) + '">' + Math.round(data.main.temp)
+                + ' F</div><div class="city-data">' + Math.round(data.wind.speed) + ' mph</div>');
             });
         }
 
         getForecast();
+        getResults(globalCity);
 
         /*****   Default Map Setup    *****/ 
         myMap = L.map('map').setView([46.87, -96.78], 4);
