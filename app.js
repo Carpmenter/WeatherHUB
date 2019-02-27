@@ -9,7 +9,7 @@ $(document).ready(function() {
     var mapLayers = [];
     
     //State//
-    var layerState;
+    var layerState, currentColor;
 
     init();
 
@@ -87,6 +87,7 @@ $(document).ready(function() {
     function getResults(city){
         // change so this method can be called from seperate links on page
         var initLoad = true;
+        var defColor = currentColor;
         if(city === undefined){
             city = document.getElementById('search-fld').value;
             initLoad = false;
@@ -104,6 +105,7 @@ $(document).ready(function() {
             success: function(data, textStatus, jqXHR){
                 $('#forecast').html('');
                 globalCity = data.name;
+                currentColor = tempColor(data.main.temp);
                 getForecast();
 
                 myMap.setView([data.coord.lat, data.coord.lon], 4);
@@ -111,7 +113,8 @@ $(document).ready(function() {
 
                 $('#location-main').html(data.name);
                 $('#temp-main-val').html(Math.round(data.main.temp) + '° F');
-                $('#temp-main-val').addClass(tempColor(data.main.temp));
+                $('#temp-main-val').removeClass(defColor);
+                $('#temp-main-val').addClass(currentColor);
                 $('#prec-main').html('Precipitation currently unavailable');
                 $('#wind-main').html(Math.round(data.wind.speed) + ' mph');
                 
@@ -202,12 +205,6 @@ $(document).ready(function() {
     
         mapMarker = L.marker([46.87, -96.78]).addTo(myMap);
         
-    }
-
-    function weatherType(weather){
-        switch (weather){
-            case 'Snow': return ""
-        }
     }
 
     // Returns a color for the given temperature

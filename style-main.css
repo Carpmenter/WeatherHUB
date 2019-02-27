@@ -43,11 +43,6 @@ body {
 }
 #cur-ctn{
     height: 100%;
-    border-width: 50px;
-    border-color: silver;
-    background-color: rgb(212, 212, 212);
-    box-shadow: 5px 5px 5px rgb(97, 96, 95);
-    border-radius: 15px;
 }
 #location-main{
     background-image: linear-gradient(rgb(151, 151, 151), rgb(224, 224, 224), rgb(151, 151, 151));
@@ -56,8 +51,7 @@ body {
     height: 20%;
     width: 100%;
     font-size: 48px;
-    text-shadow:
-    2px 2px 2px rgb(5, 5, 5);
+    text-shadow: 2px 2px 2px rgb(5, 5, 5);
     font-family: 'Advent Pro';
     color: white;
     text-align: center;
@@ -91,6 +85,7 @@ body {
     font-size: 38px;
     font-family: 'Advent Pro';
     text-align: center;
+    text-shadow: 2px 2px 2px rgb(5, 5, 5);
     color: white;
 }
 #prec-main{
@@ -101,6 +96,7 @@ body {
     height: 35%;
     font-size: 36px;
     font-family: 'Advent Pro';
+    text-shadow: 2px 2px 2px rgb(5, 5, 5);
     color: white;
     text-align: center;
 }
