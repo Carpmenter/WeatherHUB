@@ -110,7 +110,8 @@ $(document).ready(function() {
                 mapMarker.setLatLng([data.coord.lat, data.coord.lon]);
 
                 $('#location-main').html(data.name);
-                $('#temp-main').html(Math.round(data.main.temp) + ' F');
+                $('#temp-main-val').html(Math.round(data.main.temp) + '° F');
+                $('#temp-main-val').addClass(tempColor(data.main.temp));
                 $('#prec-main').html('Precipitation currently unavailable');
                 $('#wind-main').html(Math.round(data.wind.speed) + ' mph');
                 
@@ -126,7 +127,8 @@ $(document).ready(function() {
 
     function getForecast(){
         $.getJSON('https://api.openweathermap.org/data/2.5/forecast?q=' + globalCity +'&appid=f20d0afcce1a8e9378946a0b3d0f107e&units=imperial', function(content){
-
+           
+            $('#forecast').html('');
             var count = 0;
 
             // loop through 5-day array (content.list[40]) and get high/low for each day

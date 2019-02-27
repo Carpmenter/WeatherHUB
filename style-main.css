@@ -46,25 +46,45 @@ body {
     border-width: 50px;
     border-color: silver;
     background-color: rgb(212, 212, 212);
+    box-shadow: 5px 5px 5px rgb(97, 96, 95);
+    border-radius: 15px;
 }
 #location-main{
-    height: 10%;
+    background-image: linear-gradient(rgb(151, 151, 151), rgb(224, 224, 224), rgb(151, 151, 151));
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 20%;
     width: 100%;
-    font-size: 36px;
+    font-size: 48px;
+    text-shadow:
+    2px 2px 2px rgb(5, 5, 5);
     font-family: 'Advent Pro';
     color: white;
     text-align: center;
 }
 #temp-main{
+    background-image: linear-gradient(rgb(151, 151, 151), rgb(199, 199, 199), rgb(221, 221, 221));
     left: 5%;
     width: 100%;
-    height: 55%;
-    font-size: 36px;
+    height: 45%;
+    padding-top: 7%;
+}
+#temp-main-val{
+    font-size: 56px;
     font-family: 'Advent Pro';
-    color: white;
-    padding-top: 15%;
+    text-align: right;
+    font-weight: 1000;
+    text-shadow:
+    2px 2px 2px rgb(5, 5, 5);
+}
+#temp-main-img{
+    width: 120px;
+    height: 120px;
+    background-image: url('images/Weather-Icons/Clear.png');
 }
 #wind-main{
+    background-image: linear-gradient(rgb(221, 221, 221), rgb(199, 199, 199), rgb(151, 151, 151));
+    border-bottom-right-radius: 10px;
     float: right;
     width: 50%;
     height: 35%;
@@ -74,6 +94,8 @@ body {
     color: white;
 }
 #prec-main{
+    background-image: linear-gradient(rgb(221, 221, 221), rgb(199, 199, 199), rgb(151, 151, 151));
+    border-bottom-left-radius: 10px;
     float: right;
     width: 50%;
     height: 35%;
@@ -228,8 +250,7 @@ body {
     border-radius: 6px;
     border: 1px solid rgb(104, 104, 104);
     box-shadow: 4px 4px 4px rgb(49, 49, 49);
-    /*background: linear-gradient(to bottom right, #ffffff 0%, #c4c4c4 100%);*/
-    background-image: linear-gradient( rgb(235, 235, 235), rgb(255, 255, 255), rgb(175, 175, 175));
+    background-image: linear-gradient(rgb(175, 175, 175), rgb(255, 255, 255), rgb(175, 175, 175));
     height: 50%;
     top: 40px;
 }
