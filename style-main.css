@@ -1,7 +1,6 @@
 .hdr{
     background-color: rgb(21, 95, 117);
 }
-
 body {
     background-color: rgb(21, 95, 117);
   }
@@ -13,37 +12,11 @@ body {
 .fade{
     box-shadow: 0 0 5px 10px rgb(55, 133, 143);
 }
-#site-nav{
-    width: 100%;
-    background-color: rgb(32, 32, 32);
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-}
-#site-nav li {
-    float: left;
-    display: block;
-    color: rgba(252, 113, 0, 0.911);
-    text-align: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    text-shadow:
-    1px 1px 0 rgb(221, 221, 221);
-    font-family: 'Advent Pro';
-    font-weight: bold;
-    font-size: 22px;
-}
-#site-nav li a{
-    color: rgba(252, 113, 0, 0.911);
-    text-decoration: none; 
-  }
-
-#site-nav li:hover {
-    background-color: #111;
-}
 #cur-ctn{
     height: 90%;
     margin: 7%;
+    box-shadow: 4px 4px 4px rgb(104, 104, 104);
+    border-radius: 15px;
 }
 #location-main{
     background-image: linear-gradient(rgb(151, 151, 151), rgb(224, 224, 224), rgb(128, 128, 128));
@@ -68,10 +41,10 @@ body {
 #temp-main-val{
     font-size: 56px;
     font-family: 'Advent Pro';
-    text-align: right;
+    text-align: center;
     font-weight: 1000;
     text-shadow:2px 2px 2px rgb(5, 5, 5);
-    padding-top: 15%;
+    padding-top: 7%;
 }
 #temp-main-img{
     background-size: 150px 150px;
@@ -81,6 +54,7 @@ body {
 #lower-main{
     height: 35%;
     padding-top: 5%;
+    padding-left: 2%;
     padding-bottom: 10%;
     background-image: linear-gradient(rgb(221, 221, 221), rgb(236, 236, 236), rgb(255, 255, 255));
     border-bottom-left-radius: 10px;
@@ -138,7 +112,7 @@ body {
 }
 .data-columns{
     background-color: rgb(32, 32, 32);
-    box-shadow: 5px 5px 5px rgb(58, 58, 58);
+    box-shadow: 4px 4px 4px rgb(58, 58, 58);
 }
 #cur-weather{
     border-top-left-radius: 15px;
@@ -211,7 +185,6 @@ body {
 }
 
 .forecast-ctn{
-    background-image: linear-gradient(rgb(214, 214, 214), rgb(255, 255, 255), rgb(199, 199, 199));
     height: auto;
     font-weight: bold;
     padding-bottom: 10px;
@@ -233,6 +206,7 @@ body {
 #forecast{
     overflow:auto;
     box-shadow: 4px 4px 4px rgb(49, 49, 49);
+    background-image: linear-gradient(rgb(214, 214, 214), rgb(255, 255, 255), rgb(199, 199, 199));
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
     margin-bottom: 20px;
@@ -245,6 +219,8 @@ body {
 }
 .city-bnr{
     text-align: center;
+    font-family: 'Advent Pro';
+    font-size: 28px;
     padding: 20px 0;
     border-radius: 6px;
     border: 1px solid rgb(104, 104, 104);
@@ -253,31 +229,165 @@ body {
     height: 50%;
     top: 40px;
 }
-
-.city-data{
-    padding: 1px;
-    font-family: 'Advent Pro';
-}
-
-.numberFont{
-    font-family: 'Advent Pro';
-}
-
 .city-name{
     font-weight: bold;
-    font-size: 24px;
 }
 
 .city-temp{
-    font-size: 22px;
+    font-size: 30px;
     font-weight: bold;
     text-shadow:
     1px 1px 0 rgb(7, 7, 7);
 }
+nav {
+    float: right;
+    width: 100%;
+    background-color: rgb(32, 32, 32);
+}
+#site-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#site-nav li {
+    display: inline-block;
+    color: rgba(252, 113, 0, 0.911);
+    text-align: left;
+    padding: 10px;
+    text-decoration: none;
+    text-shadow:
+    1px 1px 0 rgb(221, 221, 221);
+    font-family: 'Advent Pro';
+    font-weight: bold;
+    font-size: 22px;
+}
+#site-nav li a{
+    color: rgba(252, 113, 0, 0.911);
+    text-decoration: none; 
+  }
 
+#site-nav li:hover {
+    background-color: #111;
+}
+#menu-icon {
+	display: none;
+	width: 40px;
+    height: 40px;
+	background: url('images/menu-icon.png') center;
+}
+a:hover#menu-icon {
+	background-color: #444;
+	border-radius: 4px 4px 0 0;
+}
 /*** Mobile layout ***/
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 780px) {
 /*** copy classes and adjust for mobile ***/ 
+    #menu-icon {
+        display: inline-block;
+        background-size: 40px 40px;
+    }
+    nav #site-nav, nav:active #site-nav { 
+		display: none;
+		position: absolute;
+		padding: 20px;
+		background: #fff;
+		border: 5px solid #444;
+		right: 20px;
+		top: 60px;
+		width: 50%;
+		border-radius: 4px 0 4px 4px;
+    }
+    #site-nav li {
+		text-align: center;
+		width: 100%;
+		padding: 10px 0;
+		margin: 0;
+    }
+    nav:hover #site-nave {
+        display: block;
+    }
+    #logo{
+        margin-right: 1rem!important;
+        margin-left: 1rem!important;
+    }
+    #logo img{
+        width: 100px;
+        height: 90px;
+    }
+    .city-bnr{
+        text-align: center;
+        font-size: 16px;
+        border-radius: 6px;
+        border: 1px solid rgb(104, 104, 104);
+        box-shadow: 2px 2px 2px rgb(49, 49, 49);
+        background-image: linear-gradient(rgb(175, 175, 175), rgb(255, 255, 255), rgb(175, 175, 175));
+        top: 0;
+        height: 100px;
+        padding-top: 10px;
+    }
+    .city-temp{
+        font-size: 20px;
+        font-weight: bold;
+        text-shadow:
+        1px 1px 0 rgb(7, 7, 7);
+    }
+}
+
+@media screen and (max-width: 1280px){
+
+}
+
+@media screen and (max-width: 1230px){
+    .Snow-img{
+        background-image: none;
+    }
+    .Clear-img{
+        background-image: none;
+    }
+    .Clouds-img{
+        background-image: none;
+    }
+    .Rain-img{
+        background-image: none;
+    }
+    .forecast-high {
+        height: 70px;
+        text-align: center;
+        padding: 20px 0;
+        color: rgb(255, 77, 23);
+        font-size: 24px;
+        width: 100%;
+    }
+    .forecast-low {
+        height: 50px;
+        text-align: center;
+        color: rgb(0, 101, 184);
+        font-size: 18px;
+        width: 100%;
+    }
+    .forecast-date {
+        align-content: center;
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+    }
+}
+@media screen and (min-width: 1400px){
+    #temp-main-img {
+        background-size: 175px 175px;
+        width: 175px;
+        height: 175px;
+        padding-left: 2rem!important;
+    }
+    #lower-main{
+        padding-top: 10%;
+    }
+    #temp-main-val {
+        font-size: 69px;
+    }
+    #wind-main {
+        padding-right: 15%;
+    }
 }
 
 /*** Temperature Colors ***/
