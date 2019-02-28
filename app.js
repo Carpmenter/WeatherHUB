@@ -115,8 +115,9 @@ $(document).ready(function() {
                 $('#temp-main-val').html(Math.round(data.main.temp) + '° F');
                 $('#temp-main-val').removeClass(defColor);
                 $('#temp-main-val').addClass(currentColor);
-                $('#prec-main').html('Precipitation unavailable');
+                $('#prec-main').html(data.weather[0].description);
                 $('#wind-main').html(Math.round(data.wind.speed) + ' mph');
+                $('#temp-main-img').css('background-image', "url('images/Weather-Icons/" + data.weather[0].main + ".png')");
                 
                 if(!initLoad){ document.getElementById('main-row').scrollIntoView(); }
             },
@@ -140,7 +141,6 @@ $(document).ready(function() {
                 var lows = [];
 
                 for (let j=0; j<8; j++){
-                    console.log(count);
                     if(count === content.cnt){
                         highs.push(content.list[count-1].main.temp);
                         lows.push(content.list[count-1].main.temp);
@@ -204,6 +204,8 @@ $(document).ready(function() {
         mapLayers.push(L.tileLayer('https://tile.openweathermap.org/map/{id}/{z}/{x}/{y}.png?appid={accessToken}', {id: 'precipitation_new', accessToken: 'f20d0afcce1a8e9378946a0b3d0f107e'}));
     
         mapMarker = L.marker([46.87, -96.78]).addTo(myMap);
+
+        console.log('Window Size: ' + $(window).width() + ' x ' + $(window).height());
         
     }
 
