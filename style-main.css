@@ -388,6 +388,9 @@ a:hover#menu-icon {
     #wind-main {
         padding-right: 15%;
     }
+    #cur-ctn {
+        margin-top: 5%;
+    }
 }
 
 /*** Temperature Colors ***/
