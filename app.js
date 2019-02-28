@@ -115,7 +115,7 @@ $(document).ready(function() {
                 $('#temp-main-val').html(Math.round(data.main.temp) + '° F');
                 $('#temp-main-val').removeClass(defColor);
                 $('#temp-main-val').addClass(currentColor);
-                $('#prec-main').html('Precipitation currently unavailable');
+                $('#prec-main').html('Precipitation unavailable');
                 $('#wind-main').html(Math.round(data.wind.speed) + ' mph');
                 
                 if(!initLoad){ document.getElementById('main-row').scrollIntoView(); }
