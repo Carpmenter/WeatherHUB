@@ -211,38 +211,10 @@ $(document).ready(function() {
 
     // Returns a color for the given temperature
     function tempColor(temp){
-        let color;
-        switch (true){
-            case (temp < -15): 
-                color = 'pink';
-                break;
-            case (temp < 0):
-                color = 'purple';
-                break;
-            case (temp < 15):
-                color = 'blue';
-                break;
-            case (temp < 32):
-                color = 'light-blue';
-                break;  
-            case (temp < 50):
-                color = 'green';
-                break; 
-            case (temp < 65):
-                color = 'yellow-green';
-                break;
-            case (temp < 75):
-                color = 'yellow';
-                break;
-            case (temp < 90):
-                color = 'orange';
-                break;
-            default:
-                color = 'red';
-                break;
-        }
-        return color;
+        return temp < -15 ? 'pink' : temp < 0 ? 'purple' : temp < 15 ? 'blue' : temp < 32 ? 'blue' :
+            temp < 50 ? 'green' : temp < 65 ? 'yellow-green' : temp < 75 ? 'yellow' : temp < 90 ? 'orange' : 'red';
     }
+    
      /************************* Function Declarations END ******************************************/
      /**********************************************************************************************/
 });
